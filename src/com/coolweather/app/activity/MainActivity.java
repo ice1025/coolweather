@@ -37,7 +37,6 @@ public class MainActivity extends Activity{
                 b.putString("key",editText.getText().toString());
                 intent.putExtras(b);
                 startActivity(intent);
-                finish();
             }
         });
     }
