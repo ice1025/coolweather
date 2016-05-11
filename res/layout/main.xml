@@ -3,13 +3,13 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-   <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+<!--   <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal"
            >
        <EditText android:layout_width="0dp"
                  android:layout_height="wrap_content"
                  android:layout_weight="6"
-                 android:hint="请输入要查询的城市（汉字或拼音全拼）"
+                 android:hint="请输入要查询的城市"
                  android:id="@+id/edit"
                />
        <Button android:layout_width="wrap_content"
@@ -18,11 +18,44 @@
                android:text="Search"
                android:id="@+id/button"
                />
-   </LinearLayout>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+   </LinearLayout>-->
+   <!-- <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
             >
         <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:id="@+id/imageTest"
                 />
+    </LinearLayout>-->
+    <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#484E61"
+                    android:orientation="horizontal"
+    >
+        <EditText android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="6"
+                  android:hint="请输入要查询的城市"
+                  android:id="@+id/edit"
+        />
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Search"
+                android:id="@+id/button"
+        />
+        <TextView android:id="@+id/title_text"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerInParent="true"
+                  android:textColor="#fff"
+                  android:textSize="24sp"
+                  android:text="11111"
+                  android:layout_weight="1"
+        />
     </LinearLayout>
+    <ListView
+              android:id="@+id/list_view"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    </ListView>
 </LinearLayout>
