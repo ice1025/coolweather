@@ -18,6 +18,8 @@ import com.coolweather.app.util.HttpCallbackListence;
 import com.coolweather.app.util.HttpUtil;
 import com.coolweather.app.util.Utility;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.sql.SQLOutput;
 
 /**
@@ -59,16 +61,12 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
 
         String res = getIntent().getExtras().getString("key");
         if(!TextUtils.isEmpty(res)){
-            //判断res是拼音还是汉字
-            if(res.equals("汉字")){
             /**
-             * 判断汉字方法未完善
+             * 判断方法未完善,目前默认用中文
              */
-                
-
-
-
-
+            System.out.println(res+"输入的内容======");
+            if(true){
+                System.out.println("暂默认执行这里");
                 queryWeatherBycityNameZHONGWEN(res);
             }else{//拼音
                 queryWeatherByCityName(res);
@@ -94,9 +92,14 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
     /**
      * 根据汉子来得到天气数据
      */
-    private void queryWeatherBycityNameZHONGWEN(String res){
-        String address = "http://apistore.baidu.com/microservice/weather?cityname="+res;
-        queryFromServer(address,"weatherCode");
+    private void queryWeatherBycityNameZHONGWEN(String hanzi){
+        try {
+            String re= URLEncoder.encode(hanzi,"utf-8");
+            String address = "http://apistore.baidu.com/microservice/weather?cityname="+re;
+            queryFromServer(address,"weatherCode");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
