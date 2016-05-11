@@ -6,10 +6,11 @@
     <RelativeLayout android:layout_width="match_parent"
                        android:layout_height="50dp"
             >
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                  android:id="@+id/changeCity"
-                 android:text="Change City"
-                 android:layout_marginLeft="10dp"
+                 android:text="ChangeCity"
+                 android:layout_alignParentLeft="true"
                  android:layout_centerVertical="true"
                 />
         <TextView android:layout_width="wrap_content"
@@ -19,6 +20,13 @@
                   android:textColor="#fff"
                   android:textSize="24sp"
                 />
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/refresh"
+                android:text="Refresh"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+        />
     </RelativeLayout>
     <RelativeLayout android:layout_width="match_parent" android:layout_height="0dp"
                     android:layout_weight="1"
@@ -36,9 +44,10 @@
                       android:layout_centerInParent="true"
                       android:orientation="vertical"
                 >
-            <TextView android:layout_width="wrap_content" android:layout_height="40dp"
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="40dp"
                       android:id="@+id/current_data"
-                      android:gravity="center"
+                      android:layout_gravity="center"
                       android:textColor="#FFF"
                       android:textSize="18sp"
                     />

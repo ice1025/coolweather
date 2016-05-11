@@ -123,11 +123,16 @@ public class Utility {
         editor.putString("city_name", cityName);
         editor.putString("city_code", cityCode);
         editor.putString("weather_desp", weatherDesp);
-        editor.putString("temp1", temp1);
-        editor.putString("temp2", temp2);
+        editor.putString("temp1", temp1+"℃");
+        editor.putString("temp2", temp2+"℃");
         editor.putString("publish_time",publishTime);
         editor.putString("current_date",sdf.format(new Date()));
         editor.commit();
         System.out.println("保存完成");
+    }
+    public static void saveWeatherCode(Context context,String weatherCode){
+        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
+        editor.putString("weather_code",weatherCode);
+        editor.commit();
     }
 }

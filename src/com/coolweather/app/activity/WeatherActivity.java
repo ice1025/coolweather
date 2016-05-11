@@ -40,7 +40,7 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
     //当前日期
     private TextView currentDataText;
 
-    private Button changeCity;
+    private Button changeCity,refresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -56,11 +56,15 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
         temp2Text= (TextView) findViewById(R.id.temp2);
         currentDataText= (TextView) findViewById(R.id.current_data);
         changeCity= (Button) findViewById(R.id.changeCity);
+        refresh= (Button) findViewById(R.id.refresh);
         changeCity.setOnClickListener(this);
+        refresh.setOnClickListener(this);
         //得到所传的值
 
         String res = getIntent().getExtras().getString("key");
         if(!TextUtils.isEmpty(res)){
+            //点击按钮而来，隐藏刷新按钮
+            refresh.setVisibility(View.INVISIBLE);
             /**
              * 判断方法未完善,目前默认用中文
              */
@@ -145,6 +149,11 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
                         if(array!=null&&array.length==2){
                             String weatherCode = array[1];
                             System.out.println(weatherCode+"=====天气代号weatherCode========");
+                            /**
+                             * 保存到数据库中
+                             */
+                            Utility.saveWeatherCode(getApplication(),weatherCode);
+
                             queryWeatherInfo(weatherCode);
                         }
                     }
@@ -200,6 +209,13 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
             //切换城市即跳转到主activity
             Intent intent = new Intent(getApplication(),MainActivity.class);
             startActivity(intent);
+        }else if(R.id.refresh==v.getId()){//刷新
+            publishText.setText("同步中。。。");
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            String weatherCode = prefs.getString("weather_code","");
+            if(!TextUtils.isEmpty(weatherCode)){
+                queryWeatherInfo(weatherCode);
+            }
         }
     }
 
