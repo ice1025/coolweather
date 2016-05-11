@@ -58,9 +58,22 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
         //得到所传的值
 
         String res = getIntent().getExtras().getString("key");
-        //判断res是拼音还是汉字
         if(!TextUtils.isEmpty(res)){
-            queryWeatherByCityName(res);
+            //判断res是拼音还是汉字
+            if(res.equals("汉字")){
+            /**
+             * 判断汉字方法未完善
+             */
+                
+
+
+
+
+                queryWeatherBycityNameZHONGWEN(res);
+            }else{//拼音
+                queryWeatherByCityName(res);
+            }
+
         }
 
         /***通过点击城市列表过来的***/
@@ -81,8 +94,9 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
     /**
      * 根据汉子来得到天气数据
      */
-    private void queryWeatherBycityNameZHONGWEN(){
-
+    private void queryWeatherBycityNameZHONGWEN(String res){
+        String address = "http://apistore.baidu.com/microservice/weather?cityname="+res;
+        queryFromServer(address,"weatherCode");
     }
 
     /**
