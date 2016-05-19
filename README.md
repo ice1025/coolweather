@@ -5,4 +5,5 @@
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1）拼音输入查询<br/>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2）中文查询<br/>
       &nbsp;&nbsp;&nbsp;&nbsp;（2）点击城市列表来查询<br/>
+      ---------------------------------之前用的查询天气接口已被停用-----------------------------
       
